@@ -41,7 +41,3 @@ let gretar=a>b? a>c? '*A is greater':'**c is greater':b>c?"**b is grearter":"***
 console.log(gretar)
 
 
-a=10;
-b=20;
-c=30;
-d=40;

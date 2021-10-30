@@ -11,7 +11,9 @@ while(counter<=5){
 }
 
 
-console.log(Math.round(Math.random()*10))
+console.log(Math.round(Math.random()*10)) //10 means print 0 to 9
+console.log(Math.round(Math.random()*100)) //100 means print 0 to 99
+
 
 //Random
 let a=0.49;
