@@ -3,6 +3,20 @@
 //== is for compair check only value
 //=== is for compairtion with datatype
 
+var x = 12;
+var y = 4;
+
+//Arithmetic Operators
+console.log(x + y);
+
+console.log(x - y);
+
+console.log(x * y);
+
+console.log(x / y);
+
+console.log(x % y);
+
 var num1=34;
 var num2='34';
 
@@ -53,7 +67,7 @@ console.log(x == z);  // Prints: true
 console.log(x === z); // Prints: false
 
 console.log(x != y);  // Prints: true 
-console.log(x !== z); // Prints: true 
+console.log(x !== y); // Prints: true 
 
 console.log(x < y);   // Prints: true
 console.log(x > y);   // Prints: false
