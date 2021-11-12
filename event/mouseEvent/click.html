@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>This keyword</title>  <!-- this keyword target same element where its getting invoke -->
+</head>
+<body>
+    <div>
+        <h2 onclick="chnghearde()">click me</h2>
+        <h2 onclick="chnghearde()">click me</h2>
+        <h2 onclick="this.innerHTML='Anjani' ">click me</h2>
+        <div onclick="this.innerHTML='Opppsss!!!!!!' " style="background-color: grey;">
+            <h1>1</h1>
+            <h1>2</h1>
+            <h1>3</h1>
+            <h1>4</h1>
+        </div>
+
+    </div>
+    <script>
+        chnghearde = () =>{  //() Anonymus function call
+            document.getElementsByTagName('h2')[1].innerHTML="hellow Anjani";
+        }
+    </script>
+</body>
+</html>

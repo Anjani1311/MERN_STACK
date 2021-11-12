@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>mouseUpDown</title>
+</head>
+
+<body >
+    <p id="ptag" onmousedown="md()" onmouseup="mu()">click me</p>
+    <p onmousedown="changecolor(this,'red')" onmouseup="changecolor(this,'blue')">This is a mouse event which chnage the
+        color of this paragraph.</p>
+    <p onmousedown="whichbtn(event)">click me for knoe mouse event</p>
+    <img src="durga maa1.jpg" style="width:200px; height:200px">
+    <h1>This is h1 tag</h1>
+    <ol>
+        <li></li>
+        <li></li>
+    </ol>
+    <table>
+       <tr>
+           <td></td>
+       </tr>
+    </table>
+
+    <script>
+        md = () => {
+            document.getElementById("ptag").innerHTML = "mouse is down"
+        }
+        mu = () => {
+            document.getElementById("ptag").innerHTML = "mouse is up"
+        }
+
+        //function changecolor(elem,colorname){
+        //    elem.style.color=colorname;
+        //}
+
+        changecolor = (elem, colorname) => {
+            elem.style.color = colorname;
+        }
+        whichbtn = (event) => {
+            alert('you presss the btn ' + event.button);
+        }
+    </script>
+</body>
+
+</html>
