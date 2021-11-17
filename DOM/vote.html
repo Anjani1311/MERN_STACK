@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="choose">
+        <h4>Your Age:</h4>
+        <label><input type="radio" name="age" value="Young">Young</label>
+        <label><input type="radio" name="age" value="Mature" checked>Mature</label>
+        <label><input type="radio" name="age" value="Old">Old</label>
+    </form>
+
+    <form name='my-form'>
+        <div class="artical">Artical</div>
+        <div class="long-artical">Long Artical</div>
+    </form>
+
+    <table id="demo">
+        <tr>
+            <td>
+                <h4>Your Age:</h4>
+            </td>
+            <td>
+                <label><input type="radio" name="age" value="Young">Young</label>
+                <label><input type="radio" name="age" value="Mature" checked>Mature</label>
+                <label><input type="radio" name="age" value="Old">Old</label>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        //for form 
+        let elemt = choose.getElementsByTagName('input');
+        //let elemt=document.getElementsByName("age");
+        for (let input of elemt) {
+            //alert(input.value + ':' + input.checked)
+        }
+
+        //For table
+        let element = demo.getElementsByTagName('input');
+        for (let i in element) {
+            alert(i.value + i.checked);
+        }
+
+        let from = document.getElementsByName('my-form')[0];
+        console.log('from:', from)
+
+        let from1 = document.getElementsByClassName('artical')[0];
+        console.log('from:', from1)
+    </script>
+
+
+</body>
+
+</html>

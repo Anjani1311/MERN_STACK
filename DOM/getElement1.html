@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Element By Id</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin: 10px;
+            float: left;
+            padding: 30px;
+            text-align: center;
+            background-color: lightgray;
+        }
+
+        p {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Working witn getElementById-->
+    <div id="gEBI">
+        <span id="pargh">JavaScript</span>
+        <button onclick="changecolor()">Change Color</button>
+    </div>
+
+    <!-- working with getElementsByTagName  -->
+    <div id="gEBTN" onmouseover="ChangeText()">
+        <p> Anjani </p>
+        <br>
+        <p id="demo">Anjani Pandit</p>
+    </div>
+
+    <!-- working with getElementsByClassName-->
+    <div class="gEBCNN">
+        <span id="font">JavaScript</span>
+        <button onclick="changeFont()">Change font</button>
+    </div>
+    <script>
+        changecolor = () => {
+            let elem = document.getElementById("gEBI"); //working on only Element
+            elem.style.background = 'red';
+        }
+        ChangeText = () => {
+            let pelem = document.getElementsByTagName("p"); //worlking on multiple Element
+            console.log("elem", pelem);
+
+            document.getElementById("demo").innerHTML = 'Copy from : ' + pelem[0].innerHTML;
+            let pcolorchng = document.getElementById("demo");
+            pcolorchng.style.color = 'red';
+        }
+        changeFont = () => {
+            let celemt = document.getElementsByClassName("gEBCNN"); //working on multiple Element
+            celemt[0].style.fontFamily = "Arial";
+        }
+    </script>
+</body>
+
+</html>

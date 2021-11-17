@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2 class="example">Anjani kumari pandit</h2>
+    <p class="example">Reshmi parvin</p>
+    <button onclick="OnlySelector()">click here</button>
+    <button onclick="SelectAll()">click here to change all</button>
+
+    <ul>
+        <li>Anjani</li>
+        <li>Reshmi</li>
+    </ul>
+
+    <ul>
+        <li>Uma Mishra </li>
+        <li>Neha srivastav</li>
+    </ul>
+
+    <a href="">Link1</a>
+    <a href="">Link2</a>
+    <a href="">Link3</a>
+    <a href="">Link4</a>
+
+
+    <script>
+        OnlySelector = () => {
+            let elem = document.querySelector(".example");
+            elem.style.color = "red";
+        }
+        SelectAll = () => {
+            let element = document.querySelectorAll(".example");
+            element[0].style.color = "blue"
+            element[1].style.color = "orange"
+
+            //for (let i = 0; i < element.length; i++) {
+              //  element[i].style.color = "blue";
+            //}
+        }
+
+        let ul = document.querySelectorAll("ul");
+        console.log(ul)
+
+        let li = document.querySelectorAll("li");
+        console.log(li)
+
+
+        let ulli = document.querySelectorAll('ul>li:first-child');
+        console.log(ulli)
+
+        let ullilast = document.querySelectorAll('ul>li:last-child');
+        console.log(ullilast)
+    </script>
+</body>
+
+</html>
