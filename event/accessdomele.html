@@ -3,17 +3,34 @@
 <head>
     <title>Access DOM element</title>
 </head>
+
 <body>
     <div>Begin</div>
     <ul>
         <li>Information</li>
     </ul>
     <div>End</div>
-
-    <script>
-        for (let i=0; i<document.body.childNodes.length; i++){
-            alert(document.body.childNodes[i]);
-        }
-    </script>
 </body>
+
+<script>
+    let a=document.body.childNodes.length;
+    console.log(a)
+    for (let i=0; i<document.body.childNodes.length; i++){
+        //alert(document.body.childNodes[i].nodeName);
+    }
+
+    let parentnode= document.body.parentNode
+    console.log(parentnode)
+
+    let parentnode1= document.documentElement
+    console.log(parentnode1)
+
+    let nextsibling= document.head.nextSibling
+    console.log(nextsibling)
+  
+    let previoussibling= document.body.previousSibling
+    console.log(previoussibling)
+
+
+</script>
 </html>

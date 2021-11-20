@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Selector All</title>
+</head>
+<body>
+    <p class="demo">Thiss is first paragraph 1.</p>
+    <p class="demo">This is second paragraph 2.</p>
+    <p class="demo">This is 3rd paragraph 3.</p>
+    <button onclick="demo()">click here</button>
+    <p id="example"></p>
+
+    <script>
+        demo=()=>{
+            var x=document.querySelectorAll(".demo");
+            x[0].style.color="red";
+            var y=document.querySelectorAll("p.demo");
+            y[2].style.color="blue";
+            document.getElementById("example").innerHTML=y.length;
+            var i;
+            for(i=0; i<x.length; i++){
+                x[i].style.color="orange";
+            }
+        }
+    </script>
+</body>
+</html>

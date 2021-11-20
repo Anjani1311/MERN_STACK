@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Query Selector</title>
+</head>
+
+<body>
+    <p>This is a paragraph 1.</p>
+    <h2 class="demo">This is heading.</h2>
+    <p class="demo">This is a paragraph 2.</p>
+    <p class="demo">This is a paragraph 3.</p>
+    <p id="demo">This is a paragraph 4.</p>
+    <p>This is a paragraph 5.</p>
+
+    <div>
+        <h1>This is a first headline.</h1>
+        <p>This is a first paragraph.</p>
+    </div>
+
+    <div>
+        <h1>This is a second headline.</h1>
+        <p>This is a second paragraph</p>
+    </div>
+
+    <a href="https://www.w3schools.com">w3schools.com</a>
+    <a href="http://www.disney.com" ankertag="_blank">disney.com</a>
+    <a href="http://www.wikipedia.org" target="_top">wikipedia.org</a>
+
+    <h2>Anjani kumari pandit</h2>
+    <h3>Anjani kumari pandit</h3>
+
+    <button onclick="myFunction()">Try it</button>
+    <script>
+        //To the first p element in the document.
+        function myFunction() {
+            document.querySelector("p").style.color = "red";
+            document.querySelector(".demo").style.color = "orange";
+            document.querySelector("p.demo").style.color = "blue";
+            document.querySelector("#demo").innerHTML = "Anjani Kumari pandit.......";
+            document.querySelector("p.demo").innerHTML = "Anjani........................";
+            var a = document.querySelector("div>h2");
+            a.style.color = "red";
+            document.querySelector("a[ankertag]").style.border = "10px solid red";
+            document.querySelector("h2,h3").style.color="pink";
+        }
+    </script>
+
+</body>
+
+</html>
