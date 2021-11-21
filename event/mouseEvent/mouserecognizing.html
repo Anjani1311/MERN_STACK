@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mouse recognizing</title>
+    <style>
+        .textarea {
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Mouse Recognizing Area</h2>
+    <div>
+        <button onmousedown="return logmouse(event)">click me with right or left btn here</button>
+        <button onclick="clearele()">clear</button>
+    </div><br>
+
+    <form action="" id="testform" name="testform">
+        <textarea class="textarea" name="" id="" cols="50" rows="10"></textarea>
+    </form>
+
+    <script>
+        let timer = 0;
+        showMessage = (t, form) => {
+            if (timer == 0) {
+                timer = new Date();
+            }
+
+            let tm = new Date();
+            if (tm - timer > 300) {
+                t = '.........New click...............\n' + t;
+            }
+            let area = document.forms[form + 'form'].getElementsByTagName('textarea')[0];
+            area.value += t + '\n';
+            area.scrollTop = area.scrollHeight;
+            timer = tm;
+        }
+
+
+        logmouse = (e) => {
+            let Event = e.type;
+            while (Event.length > 11) Event += '';
+            showMessage(Event + 'button=' + e.button, 'test')
+            return false;
+        }
+    </script>
+</body>
+
+</html>

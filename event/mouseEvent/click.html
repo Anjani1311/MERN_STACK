@@ -15,12 +15,19 @@
             <h1>3</h1>
             <h1>4</h1>
         </div>
+        <p id="demo" ondblclick="dbclickchng()">This is double cllick elemenrt.</p>
 
     </div>
     <script>
         chnghearde = () =>{  //() Anonymus function call
             document.getElementsByTagName('h2')[1].innerHTML="hellow Anjani";
         }
+
+        dbclickchng = () =>{  //() Anonymus function call
+            document.getElementById('demo').innerHTML="I was double click hellow Anjani......................";
+        }
+
+        
     </script>
 </body>
 </html>
