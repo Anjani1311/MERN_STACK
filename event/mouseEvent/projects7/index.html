@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            height: 2000px;
+            /* the tooltip should work after page scroll too */
+        }
+
+        .tooltip {
+            position: fixed;
+            z-index: 100;
+
+            padding: 10px 20px;
+
+            border: 1px solid #b3c9ce;
+            border-radius: 4px;
+            text-align: center;
+            font: italic 14px/1.3 sans-serif;
+            color: #333;
+            background: #fff;
+            box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);
+        }
+
+        #house {
+            margin-top: 50px;
+            width: 400px;
+            border: 1px solid brown;
+        }
+
+        #roof {
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 20px solid brown;
+            margin-top: -20px;
+        }
+
+        p {
+            text-align: justify;
+            margin: 10px 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div data-tooltip="Here is the house interior" id="house" onmouseover="check()">
+        <div data-tooltip="Here is the roof" id="roof"></div>
+
+        <p>Once upon a time there was a mother pig who had three little pigs.</p>
+
+        <p>The three little pigs grew so big that their mother said to them, "You are too big to live here any longer.
+            You must go and build houses for yourselves. But take care that the wolf does not catch you."
+
+            <p>The three little pigs set off. "We will take care that the wolf does not catch us," they said.</p>
+
+            <p>Soon they met a man. <a href="https://en.wikipedia.org/wiki/The_Three_Little_Pigs"
+                    data-tooltip="Read on…">Hover over me</a></p>
+
+
+    </div>
+
+    <span id="para"></span>
+
+    <!-- <script>
+        house.onmouseover = function () {
+            para.className = "tooltip"
+            para.innerHTML = "Here is the house interior"
+        }
+        house.onmouseout = function () {
+            para.innerHTML = ""
+            para.className = ""
+        }
+        roof.onmouseover = function () {
+            para1.innerHTML = "You are in top of the roof"
+            para1.className = "tooltip"
+        }
+        roof.onmouseout = function () {
+            para1.innerHTML = ""
+            para1.className = ""
+        }
+        read.onmouseover = function () {
+            para2.innerHTML = "Read on…"
+            para2.className = "tooltip"
+        }
+        read.onmouseout = function () {
+            para2.innerHTML = ""
+            para2.className = ""
+        }
+    </script> -->
+
+    <script>
+        house.onmouseover = function () {
+            var x = div.getAttribute("data-tooltip");
+            para.className = "tooltip"
+            para.innerHTML = x;
+        }
+
+        check=()=>{
+            if(div.getAttribute("id")==house){
+                
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

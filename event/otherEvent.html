@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div onmouseenter="enter()"  onmouseleave="leave()">
+        <p id="para">Anjani kumari pandit</p>
+    </div>
+
+    <div onmousemove="curd(event)" onmouseout="clean()">
+       <p>mousemove</p>
+    </div>
+    <p id="demo"></p>
+    <script>
+        enter=()=>{
+           para.innerHTML="Enter Hello Anjani";
+
+        }
+
+        leave=()=>{
+            para.innerHTML="Leave Hello Anjani";
+        }
+
+        curd=(e)=>{
+           let x=e.clientX;
+           let y=e.clientY;
+           let cord="cordinats: "+x+" || "+y;
+           demo.innerHTML=cord;
+        }
+
+        clean=()=>{
+            demo.innerHTML="";
+        }
+    </script>
+</body>
+</html>

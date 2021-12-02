@@ -17,11 +17,11 @@
     <h2>Mouse Recognizing Area</h2>
     <div>
         <button onmousedown="return logmouse(event)">click me with right or left btn here</button>
-        <button onclick="clearele()">clear</button>
+        <button onclick="testform.area.value=''">clear</button>
     </div><br>
 
     <form action="" id="testform" name="testform">
-        <textarea class="textarea" name="" id="" cols="50" rows="10"></textarea>
+        <textarea class="textarea" name="area" id="" cols="50" rows="10"></textarea>
     </form>
 
     <script>
@@ -48,6 +48,9 @@
             showMessage(Event + 'button=' + e.button, 'test')
             return false;
         }
+
+        
+        
     </script>
 </body>
 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dv1 {
+            width: 200px;
+            height: 200px;
+        }
+
+        .dv2 {
+            background-color: #D94A38;
+            width: 170px;
+            height: 80px;
+            margin: 20px;
+            padding-top: 20px;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 18px;
+            float: left;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dv2" onmouseover="this.innerHTML='on mouse over' " onmouseout="this.innerHTML='Anjani onmouseout' ">
+
+    </div>
+    <div class="dv2" onclick="clickeMe(this)">click me</div>
+
+    <script>
+        clickeMe=(obj)=>{
+            if(obj.innerHTML=="click me"){
+                obj.innerHTML="Clicked";
+                return
+            }
+            if(obj.innerHTML=="Clicked"){
+                obj.innerHTML="Again clixk here";
+                return
+            }
+            if(obj.innerHTML=="Again clixk here"){
+                obj.innerHTML="Thank you";
+                return
+            }
+            if(obj.innerHTML=="Thank you"){
+                obj.innerHTML="Good byy";
+                return
+            }
+            if(obj.innerHTML=="Good byy"){
+                obj.style.display="none";
+                return
+            }
+        }
+
+    </script>
+</body>
+
+</html>

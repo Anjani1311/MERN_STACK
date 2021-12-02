@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Text Editor</title>
+    <style>
+        .section {
+            padding: 4%;
+            padding-top: 0;
+            height: 100vh;
+        }
+
+        .heading {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: center;
+            color: #873ad4;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 1px 1px red;
+        }
+
+        .flex-box {
+            display: flex;
+            justify-content: center;
+            margin-top: 13px;
+        }
+
+        .box {
+            margin-bottom: 4px;
+            display: inline-flex;
+        }
+
+        textarea {
+            border: 2px solid #a956fc;
+            font-weight: 6px;
+            box-shadow: 5px -2px 6px -3px rgb(121, 110, 110);
+        }
+
+        .btn {
+            background-color: #a956fc;
+            border-color: #c993ff !important;
+            color: #f7f4f4 !important;
+            padding: 9px 16px;
+            font-size: 17px;
+            cursor: pointer;
+            margin-bottom: 2px;
+        }
+
+        .btn:hover {
+            background-color: rgb(11, 14, 22);
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 150px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            top: 150%;
+            left: 50%;
+            margin-left: -60px;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: transparent transparent black transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        #editor {
+            padding: 20px;
+            outline: 0;
+            box-shadow: 0 0 13px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            min-height: 400px;
+            background-color: white;
+        }
+
+        .select {
+            background-color: #a956fc;
+            color: white;
+            border: none;
+            font-size: 16px;
+        }
+
+        .select:hover {
+            background-color: black;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="section">
+        <h1 class="heading">Text Editor </h1>
+        <div class="box">
+            <div class="button1">
+                
+
+                <div class="tooltip">
+                    <button class="btn" id="boldbtn"><i class="fa fa-file"></i></button>
+                    <span class="tooltiptext">New Page</span>
+                </div>
+
+                <div class="tooltip">
+                    <button class="btn" id="boldbtn"><i class="fa fa-bold"></i></button>
+                    <span class="tooltiptext">Bold</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="italicbtn"><i class="fa fa-italic"></i></button>
+                    <span class="tooltiptext">Italic</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="underlinebtn"><i class="fa fa-underline"></i></button>
+                    <span class="tooltiptext">Underline</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="unorderlist"><i class="fa fa-list-ul"></i></button>
+                    <span class="tooltiptext">Unordered List</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="orderlist"><i class="fa fa-list-ol"></i></button>
+                    <span class="tooltiptext">Ordered List</span>
+                </div>
+                <div class="tooltip">
+                    <!-- <input type="file" id="imagepic"> -->
+                    <button class="btn" id="imagepic"><i class="fa fa-image"></i></button> 
+                    <span class="tooltiptext">Picture</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="table"><i class="fa fa-table"></i></button>
+                    <span class="tooltiptext">Table</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn"><i class="fa fa-video-camera"></i></button>
+                    <span class="tooltiptext">Video</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn"><i class="fa fa-window-maximize"></i></button>
+                    <span class="tooltiptext">Full Screen</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn"><i class="fa fa-code"></i></button>
+                    <span class="tooltiptext">Code View</span>
+                </div>
+                
+                <div class="tooltip">
+                    <button class="btn"><i class="fa fa-question"></i></button>
+                    <span class="tooltiptext">Help</span>
+                </div>
+
+                <button class="btn">Clear Text</button>
+
+                <div class="tooltip">
+                    <button class="btn" id="justifyRight"><i class="fa fa-cut"></i></button>
+                    <span class="tooltiptext">cut</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="justifyRight"><i class="fa fa-copy"></i></button>
+                    <span class="tooltiptext">copy</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="justifyRight"><i class="fa fa-paste"></i></button>
+                    <span class="tooltiptext">paste</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="justifyRight"><i class="fa fa-repeat" ></i></button>
+                    <span class="tooltiptext">repeat</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="justifyRight"><i class="fa fa-undo"></i></button>
+                    <span class="tooltiptext">undo</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="justifyRight"><i class="fa fa-exchange"></i></button>
+                    <span class="tooltiptext">Replace</span>
+                </div>
+                
+                <div class="tooltip">
+                    <button class="btn" id="superscript"><i class="fa fa-superscript"></i>
+                    </button>
+                    <span class="tooltiptext">superscript</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="subscript"><i class="fa fa-subscript"></i></button>
+                    <span class="tooltiptext">subscript</span>
+                </div>
+
+                <div class="tooltip">
+                    <button class="btn" id="subscript"><i class="fa fa-wpforms"></i></button>
+                    <span class="tooltiptext">Form</span>
+                </div>
+                
+
+                <div class="tooltip">
+                    <button class="btn" id="subscript"><i class="fa fa-check-square"></i></button>
+                    <span class="tooltiptext">Checkbox</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="subscript"><i class="fa fa-bars"></i></button>
+                    <span class="tooltiptext">Insert Horizontal line</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="subscript"><i class="fa fa-link"></i></button>
+                    <span class="tooltiptext">Link</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="subscript"><i class="fa fa-quote-right"></i></button>
+                    <span class="tooltiptext">Block Quotes</span>
+                </div>
+                <div class="tooltip">
+                    <button class="btn" id="subscript"><i class="fa fa-search"></i></button>
+                    <span class="tooltiptext">Search</span>
+                </div>
+                <div class="dropdown">
+                    <button class="btn" class="dropdown-content">
+                        <select name="fonts" id="dropdown2" class="select">
+                            <option id="dropdown_item">Select Font</option>
+                            <option id="dropdown_item" value="Lucida Console" style="font-family:'Lucida Console';">
+                                Lucida
+                                Console</option>
+                            <option id="dropdown_item" value="TypeWriter" style="font-family:'TypeWriter';">TypeWriter
+                            </option>
+                            <option id="dropdown_item" value="arial" style="font-family:'arial';">Arial</option>
+                            <option id="dropdown_item" value="comic sans ms" style="font-family:'comic sans ms';">comic
+                                sans ms </option>
+                            <option id="dropdown_item" value="cursive" style="font-family:'cursive';">cursive </option>
+                            <option id="dropdown_item" value="Impact" style="font-family:'Impact';">Impact</option>
+                            <option id="dropdown_item" value="Times New Roman" style="font-family:'Times New Roman';">
+                                Times
+                                New
+                                Roman</option>
+                            <option id="dropdown_item" value="Courier New" style="font-family:'Courier New';">Courier
+                                New
+                            </option>
+                            <option id="dropdown_item" value="Webdings" style="font-family:'Webdings';">Webdings
+                            </option>
+                            <option id="dropdown_item" value="Century Gothic" style="font-family:'Century Gothic';">
+                                Century
+                                Gothic</option>
+                            <option id="dropdown_item" value="Georgia" style="font-family:'Georgia';">Georgia </option>
+                            <option id="dropdown_item" value="Komika" style="font-family:'Komika';">Komika </option>
+                            <option id="dropdown_item" value="Verdana" style="font-family:'Verdana';">Verdana </option>
+                        </select>
+                    </button>
+                </div>
+                <div class="dropdown">
+                    <button class="btn">Select Alignment <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <div class="tooltip">
+                            <button class="btn" id="justifyLeft"><i class="fa fa-align-left"></i></button>
+                            <span class="tooltiptext"> Align Left</span>
+                        </div>
+                        <div class="tooltip">
+                            <button class="btn" id="justifycenter"><i class="fa fa-align-center"></i></button>
+                            <span class="tooltiptext">Align middle</span>
+                        </div>
+                        <div class="tooltip">
+                            <button class="btn" id="justifyRight"><i class="fa fa-align-right"></i></button>
+                            <span class="tooltiptext">Align Right</span>
+                        </div>
+                        <div class="tooltip">
+                            <button class="btn" id="justifyfull"><i class="fa fa-align-justify"></i> </button>
+                            <span class="tooltiptext">Justify Full</span>
+                        </div>
+                        <div class="tooltip">
+                            <button class="btn" id="outdent"><i class="fa fa-outdent"></i></button>
+                            <span class="tooltiptext">Outdent</span>
+                        </div>
+                        <div class="tooltip">
+                            <button class="btn" id="indent"><i class="fa fa-indent"></i></button>
+                            <span class="tooltiptext">Indent</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn">Text Type <i class="fa fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <button class="btn" id="uppercase">Upper Case</button>
+                        <button class="btn" id="lowercase">Lower Case</button>
+                        <button class="btn" id="capatalize"> Capitalize </button>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn" class="dropdown-content">
+                        <select name="fonts" id="dropdown2" class="select">
+                            <option id="dropdown_item">Normal</option>
+                            <option id="dropdown_item" value="Lucida Console">Heading 1</option>
+                            <option id="dropdown_item" value="TypeWriter" >Heading 2</option>
+                            <option id="dropdown_item" value="arial" >Heading 3</option>
+                            <option id="dropdown_item" value="comic sans ms" >Heading 4 </option>
+                            <option id="dropdown_item" value="cursive" >Heading 5 </option>
+                            <option id="dropdown_item" value="Impact" >Heading 6</option>
+                            <option id="dropdown_item" value="Times New Roman" >Formatted</option>
+                            
+                        </select>
+                    </button>
+                </div>
+                <div class="dropdown">
+                    <button class="btn" class="dropdown-content">
+                        <select name="fonts" id="dropdown2" class="select">
+                            <option id="dropdown_item">Font Size</option>
+                            <option id="dropdown_item" value="Lucida Console">8</option>
+                            <option id="dropdown_item" value="TypeWriter" >9</option>
+                            <option id="dropdown_item" value="arial" >10</option>
+                            <option id="dropdown_item" value="comic sans ms" >11</option>
+                            <option id="dropdown_item" value="cursive" >12</option>
+                            <option id="dropdown_item" value="Impact" >14</option>
+                            <option id="dropdown_item" value="Times New Roman" >16</option>
+                            <option id="dropdown_item" value="Times New Roman" >18</option>
+                            <option id="dropdown_item" value="Times New Roman" >20</option>
+                            <option id="dropdown_item" value="Times New Roman" >22</option>
+                            <option id="dropdown_item" value="Times New Roman" >24</option>
+                            <option id="dropdown_item" value="Times New Roman" >26</option>
+                            <option id="dropdown_item" value="Times New Roman" >28</option>
+                            <option id="dropdown_item" value="Times New Roman" >36</option>
+                            <option id="dropdown_item" value="Times New Roman" >48</option>
+                            <option id="dropdown_item" value="Times New Roman" >72</option>
+                        </select>
+                    </button>
+                </div>
+                <div class="tooltip">
+                    <input type="color" id="colorbtn" class="btn"> 
+                    <!-- <button class="btn" id="color"><i class="fa fa-tint"></i></button> -->
+                    <span class="tooltiptext">foreColor</span> 
+                </div>
+                <div class="tooltip">
+                    <input type="color" id="backcolorbtn" class="btn" >
+                    <!-- <button class="btn" id="color"><i class="fa fa-tint"></i></button> -->
+                    <span class="tooltiptext">backColor</span> 
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="editor" contenteditable="true">
+
+        </div>
+        <!-- <div class="flex-box">
+            <textarea id="textarea1" class="input shadow" name="name" rows="25" cols="140"
+                placeholder="Your text here "></textarea>
+        </div> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
