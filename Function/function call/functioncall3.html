@@ -1,0 +1,36 @@
+<!-- use strict is used to secure the programe -->
+<!-- Using an object, without declaring it, is not allowed: -->
+<!-- Using a variable, without declaring it, is not allowed: -->
+<!-- Deleting a variable (or object) is not allowed. -->
+<!-- Duplicating a parameter name is not allowed: -->
+<!-- Octal numeric literals are not allowed: Example-0101 -->
+<!-- Writing to a read-only property is not allowed: -->
+<!-- Writing to a get-only property is not allowed: -->
+<!-- Deleting an undeletable property is not allowed: -->
+<!-- The word eval cannot be used as a variable: -->
+<!-- The word arguments  cannot be used as a variable: -->
+<!-- The word with  cannot be used as a variable: -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        'use strict';
+        var empName = 'Debasish';
+        function display() {
+            document.write('Employee Name is ', this.empName);
+        }
+        display.call();
+    </script>
+</body>
+
+</html>

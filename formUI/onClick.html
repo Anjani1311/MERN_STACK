@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <form action="">
-        <input type="button" value="Japann" name="konnichwa" onClick="ValidateForm(this.form.input)">  <!-- konnichwa -->
+        <input type="button" value="Japann" name="konnichwa" onClick="japan()"> <!-- konnichwa -->
         <br>
-        <input type="button" value="Indian" onClick="ValidateForm(this.form)">  <!-- namaste -->
+        <input type="button" value="Indian" onClick="india()"> <!-- namaste -->
         <br>
-        <input type="button" value="Germany" onClick="ValidateForm(this.form)">  <!--  Gutan tag -->
+        <input type="button" value="Germany" onClick="german()"> <!--  Gutan tag -->
     </form>
     <script>
-        ValidateForm=(e)=>{
-            alert('value of '+e.name)
+        japan = () => {
+            setTimeout(function () {
+                alert("language of japan is konnichwa.");
+            },5000);
+        }
+
+        india = () => {
+            alert("language of japan is Namaste.Anjani kumari pandit.");
+        }
+        german = () => {
+            alert("language of japan is Gutantag .Anjani kumari pandit.");
         }
     </script>
 </body>
+
 </html>

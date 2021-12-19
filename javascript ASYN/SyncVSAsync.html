@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        //couplling effect (sync process) line by line
+        /* document.write("Hii");
+        document.write("</br>");
+        document.write("Anjani pandit");
+        document.write("</br>");
+        document.write("</br>");
+        document.write("Good Day");
+        document.write("</br>");
+        document.write("Byy");
+
+
+        //couplling effect (Async process)  parallel processing
+        document.write("Hii");
+        document.write("</br>");
+        document.write("Anjani pandit");
+        document.write("</br>");
+        setTimeout(()=>{
+            document.write('This is Async')
+        },500)
+        document.write("</br>");
+        document.write("Good Day");
+        document.write("</br>");
+        document.write("Byy");
+        
+
+
+        setTimeout(randomNumber,2000);
+        function randomNumber(){
+             document.getElementById("demo").innerHTML=Math.random();
+         }
+
+         
+         setInterval(MyFunction,5000)
+         function MyFunction(){
+            document.getElementById("demo").innerHTML=Math.random();
+        }
+
+        */
+
+        setInterval(Time,1000)
+        function Time(){
+            let date=new Date();
+           document.getElementById("demo").innerHTML=date.getHours()+":"+date.getMinutes()+":"+date.getSeconds()
+       }
+
+
+        
+
+        
+
+         
+    </script>
+</body>
+</html>
