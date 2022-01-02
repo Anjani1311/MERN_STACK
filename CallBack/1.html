@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    //! Create Three Function 
+    /*
+    1.getName(id);         // return Name             2000
+    2.getHobbies(name);    // retun Hobbies           4000 
+    3.getDetails(hobby);  // return Hobbies Details   6000
+    */
+
+
+
+    function getName(id, CallBack) {
+        let Name = {
+            '1': 'Debasish',
+            '2': 'Abdul',
+            '3': 'Anjani',
+            '4': 'Reshmi',
+            '5': 'Dinda',
+            '6': 'Sandip',
+            '7': 'Ani',
+            '8': 'Raju',
+        }
+        setTimeout(function () {
+            console.log('Inside From getName Function');
+            let nm = '';
+            if (id > 8) {
+                nm = 'No Name Found';
+            } else {
+                nm = Name[id];
+            }
+            CallBack(nm)
+        }, 2000)
+    }
+
+    function getHobbies(name,CallBack) {
+        let Hobbies = {
+            'Debasish': 'Coding',
+            'Abdul': 'Cricket',
+            'Anjani': 'Reading',
+            'Reshmi': 'Vollyball',
+            'Dinda': 'Cricket',
+            'Sandip': 'Football',
+            'Ani': 'Football',
+            'Raju': 'Reading'
+        }
+        setTimeout(function () {
+            console.log('Inside From getHobbies Function');
+            let hb = '';
+            if (name == 'No Name Found') {
+                hb = 'No Hobbies Found';
+            } else {
+                hb = Hobbies[name];
+            }
+            CallBack(hb)
+        }, 4000)
+
+
+    }
+    function getDetails(hobby, CallBack) {
+        let HobbiesDetails = {
+            'Coding': 'Coding is a very good skill',
+            'Cricket': 'Cricket is a very good sport',
+            'Reading': 'Reading is a very good skill',
+            'Vollyball': 'Vollyball is a very good sport',
+            'Football': 'Football is a very good sport',
+        }
+        setTimeout(function () {
+            console.log('Inside From getDetails Function');
+            let hb = '';
+            if (hobby == 'No Hobbies Found') {
+                hb = 'No Hobbies Details Found';
+            } else {
+                hb = HobbiesDetails[hobby];
+            }
+            CallBack(hb)
+        }, 6000)
+    }
+
+
+    let nm=getName(1,
+       (nm)=>{
+        console.log(nm);
+           getHobbies(nm,
+              (hb)=>{
+                console.log(hb);
+                  getDetails(hb,
+                      (hbDetails)=>{
+                          console.log(hbDetails);
+                      }
+                  )
+              }
+           )
+       }
+    )
+
+
+
+
+      // please call the function with only and only Callback
+    //i need  know the name and hobbies and there Details of the person with id=1
+    //i need  know the name and hobbies and there Details of the person with id=3
+    //i need  know the name and hobbies and there Details of the person with id=5
+    //i need  know the name and hobbies and there Details of the person with id=7
+
+
+
+
+
+</script>
+
+</html>

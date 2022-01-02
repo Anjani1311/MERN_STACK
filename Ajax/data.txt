@@ -1,0 +1,1 @@
+Data: This is data from txt file 
